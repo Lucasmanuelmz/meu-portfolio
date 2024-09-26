@@ -219,7 +219,7 @@
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:1fr;
     align-items: center;
     gap: 15px;
   }
@@ -417,6 +417,11 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+  }
+
+  footer p {
+    font-size: 12px;
+    text-align: center;
   }
   
 }
