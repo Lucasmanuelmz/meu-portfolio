@@ -749,25 +749,25 @@ export default function App() {
           <div className="social-card">
             <div className="div-card" data-aos="fade-up-left">
               <div className="card">
-                <FaGithubAlt color="#80B165" size={18} />
+                <FaGithubAlt color="#80B165" size={16} />
               </div>
               <p>GitHub</p>
             </div>
             <div className="div-card" data-aos="fade-up-left">
               <div className="card">
-                <FaLinkedinIn size={18} color="#80B165" />
+                <FaLinkedinIn size={16} color="#80B165" />
               </div>
               <p>Linkedin</p>
             </div>
             <div className="div-card" data-aos="fade-up-left">
               <div className="card">
-                <FaFacebookF color="#80B165" size={18} />
+                <FaFacebookF color="#80B165" size={16} />
               </div>
               <p>Facebook</p>
             </div>
             <div className="div-card" data-aos="fade-up-left">
               <div className="card">
-                <FaXTwitter color="#80B165" size={18} />
+                <FaXTwitter style={{fontSize: 18}} color="#80B165" />
               </div>
               <p>Twiter</p>
             </div>
