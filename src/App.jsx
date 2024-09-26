@@ -1,4 +1,7 @@
 import "./App.css";
+import './Media580.css';
+import './media600.css';
+import './super.css';
 import laptop from "./assets/laptop.jpg";
 import jscode from "./assets/jscode.jpg";
 import paisage from "./assets/paisage.jpg";
@@ -22,6 +25,24 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const [flyIn, setFlyIn] = useState(false);
+  const [invisible, setInvisible] = useState('invisible');
+  const [unview, setUnview] = useState('unview');
+
+  function handleSetClass() {
+    if(invisible === 'invisible') {
+      setInvisible('display');
+    }else {
+      setInvisible('invisible')
+    }
+  }
+
+  function handleChangeClass() {
+    if(unview === 'unview') {
+      setUnview('view');
+    } else {
+      setUnview('unview')
+    }
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -196,8 +217,9 @@ export default function App() {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
+              marginTop: '20px',
+              position: 'relative'
             }}
-            title="Este projeto ainda esta em desenvolvimento. Por isso ainda não adicionei nenhum projeto no portfólio por enquanto. As imagens estão apenas para mostrar como será quando forem adicionados os projetos!"
           >
             Meus projetos{" "}
             <span
@@ -214,13 +236,19 @@ export default function App() {
                 justifyContent: "center",
                 marginLeft: "5px",
               }}
+
+              onClick={handleSetClass}
             >
               &#8505;
             </span>
+            <div className={invisible}>
+            <p>Este portfólio está em fase de desenvolvimento. Os projetos ainda não foram adicionados, e as imagens exibidas atualmente servem apenas como demonstração de como ficará o layout final. Em breve, todos os projetos serão devidamente incluídos!</p>
+          </div>
           </h3>
+          
           <div className="project-list">
             <h4>Destaques</h4>
-            <div className="project-grid">
+            <div className="project-feature">
               <div data-aos="fade-up-right" className="featured-project">
                 <img src={laptop} alt="Projeto Destaque" />
                 <div className="hidden-content">
@@ -718,14 +746,20 @@ export default function App() {
       </Element>
       <Element name="contact">
         <section id="contact" className="social-contacts">
+          <div style={{position: 'relative', width: '100%'}}>
+          <div className={unview}>
+              <p>Atualmente, estou focado no aprimoramento das minhas habilidades em desenvolvimento web, dedicando meu tempo a estudos autodidatas e projetos práticos. Como parte desse processo, tenho optado por reduzir minha atividade em redes sociais, como Facebook, LinkedIn e X, para priorizar o aprendizado em fontes técnicas especializadas. Por esse motivo, minhas redes sociais podem estar temporariamente desatualizadas.</p>
+            </div>
+          </div>
           <h3
             style={{
               display: "flex",
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
+              position: 'relative',
+              maxWidth: '90%'
             }}
-            title="Atualmente, tenho direcionado meu foco e energia para o aperfeiçoamento das minhas habilidades no desenvolvimento web por meio de estudos autodidatas e projetos práticos. Como resultado, não tenho estado muito ativo em redes sociais como Facebook, LinkedIn e X, pois acredito que, neste momento, a consulta a sites, blogs técnicos e outras fontes especializadas tem sido mais produtiva para o meu crescimento. Por isso, minhas redes sociais estão temporariamente desatualizadas."
           >
             Contatos{" "}
             <span
@@ -742,10 +776,13 @@ export default function App() {
                 justifyContent: "center",
                 marginLeft: "5px",
               }}
+              onClick={handleChangeClass}
             >
               &#8505;
             </span>
           </h3>
+
+          
           <div className="social-card">
             <div className="div-card" data-aos="fade-up-left">
               <div className="card">
