@@ -1,7 +1,8 @@
-import "./App.css";
+
 import './Media580.css';
 import './media600.css';
 import './super.css';
+import "./App.css";
 import laptop from "./assets/laptop.jpg";
 import jscode from "./assets/jscode.jpg";
 import paisage from "./assets/paisage.jpg";
@@ -27,13 +28,70 @@ export default function App() {
   const [flyIn, setFlyIn] = useState(false);
   const [invisible, setInvisible] = useState('invisible');
   const [unview, setUnview] = useState('unview');
+  const [closed, setClosed] = useState('closed');
+  const [lightMode, setLightMode] = useState(
+    {
+    body:'body',
+    header: 'header',
+    visible: 'visible',
+    presentation: 'container-presentation',
+    paralax: 'parallax',
+    feature: 'featured-project',
+    sills: 'skills-container',
+    skill: 'skill',
+    card: 'card',
+    footer: 'footer',
+    hiddenContent: 'hidden-content',
+    project: 'project',
+    back: 'button-back',
+    iconColor: '#F7F7F7'
+  }
+);
+
+const [isLightMode, setIsLightMode] = useState(false);
+
+useEffect(() => {  
+  const body = document.querySelector('body');
+  if(!isLightMode) {
+    body.classList.add('body');
+    body.classList.remove('body-light');
+  } else {
+    body.classList.add('body-light');
+    body.classList.remove('body')
+  }
+
+  return () => {
+    document.body.classList.remove('body', 'body-light')
+  }
+},[isLightMode])
+
+  function modeLight() {
+    setIsLightMode(prevBg =>!prevBg);
+    setLightMode(prevMode => (
+      {
+      body: prevMode.body === 'body' ? 'body-light' : 'body',
+      header: prevMode.header === 'header' ? 'header-light' : 'header',
+      skills: prevMode.sills === 'skills-container'? 'skills-container':'skills-container-light',
+      skill: prevMode.skill === 'skill' ? 'skill-light' : 'skill',
+      presentation: prevMode.presentation === 'container-presentation'? 'container-presentation-light': 'container-presentation',
+      visible: prevMode.visible === 'visible'? 'visible-light': 'visible',
+      card: prevMode.card === 'card' ? 'card-light' : 'card',
+      feature: prevMode.feature === 'featured-project'? 'featured-project-light': 'featured-project',
+      hiddenContent: prevMode.hiddenContent === 'hidden-content'? 'hidden-content-light': 'hidden-content',
+      paralax: prevMode.paralax === 'parallax'? 'parallax-light': 'parallax',
+      project: prevMode.project === 'project'? 'project-light': 'project',
+      back: prevMode.back === 'button-back'? 'button-back-light': 'button-back',
+      footer: prevMode.footer === 'footer' ? 'footer-light' : 'footer',
+      iconColor: prevMode.iconColor === '#F7F7F7'? '#333': '#F7F7F7'
+    }));
+  }
+
+  function closeButtonAndOpen() {
+    closed === 'closed'? setClosed('open') : setClosed('closed')
+  }
 
   function handleSetClass() {
-    if(invisible === 'invisible') {
-      setInvisible('display');
-    }else {
-      setInvisible('invisible')
-    }
+    invisible === 'invisible'? setInvisible('display'): setInvisible('invisible')
   }
 
   function handleChangeClass() {
@@ -84,8 +142,7 @@ export default function App() {
 
   return (
     <>
-      <header>
-        <h1>Portfólio</h1>
+      <header className={lightMode.header}>
         <button
           onClick={() => setOpen(!open)}
           aria-expanded={open}
@@ -95,7 +152,7 @@ export default function App() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
-              color="#fff"
+              color={lightMode.iconColor}
               height="32"
               viewBox="0 0 24 24"
               fill="none"
@@ -112,7 +169,7 @@ export default function App() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
-              color="#fff"
+              color={lightMode.iconColor}
               height="32"
               viewBox="0 0 24 24"
               fill="none"
@@ -128,10 +185,16 @@ export default function App() {
             </svg>
           )}
         </button>
+        <h1>Portfólio</h1>
+        <div onClick={modeLight}>
+        <div onClick={closeButtonAndOpen} className={closed}>
+          <button  className="button"></button>
+        </div>
+        </div>
       </header>
       <motion.div style={{ scaleX }} className="progress-bar" />
 
-      <nav className={`menu ${open ? "visible" : "hidden"}`}>
+      <nav className={`menu ${open ? lightMode.visible : "hidden"}`}>
       <h2>Bem vindo ao meu portfólio de desenvolvedor web : )</h2>
         <ul>
           <li>
@@ -193,7 +256,7 @@ export default function App() {
         </ul>
       </nav>
       <Element name="about">
-        <section id="about" className="container-presentation parallax">
+        <section id={lightMode.about} className={`${lightMode.presentation} ${lightMode.paralax}`}>
           <div className={`container about ${flyIn ? "fly-in" : ""}`}>
             <h2>Desenvolvedor web full-stack</h2>
             <p>
@@ -249,9 +312,9 @@ export default function App() {
           <div className="project-list">
             <h4>Destaques</h4>
             <div className="project-feature">
-              <div data-aos="fade-up-right" className="featured-project">
+              <div data-aos="fade-up-right" className={lightMode.feature}>
                 <img src={laptop} alt="Projeto Destaque" />
-                <div className="hidden-content">
+                <div className={lightMode.hiddenContent}>
                   <h5>Espaço reservado</h5>
                   <p>
                     Este conteúdo é apenas para reserva de espaço e para manter
@@ -264,9 +327,9 @@ export default function App() {
             </div>
             <h4>Outros projetos</h4>
             <div className="project-grid">
-              <div data-aos="fade-up-right" className="project">
+              <div data-aos="fade-up-right" className={lightMode.project}>
                 <img src={paisage} alt="Projeto 1" />
-                <div className="hidden-content">
+                <div className={lightMode.hiddenContent}>
                   <h5>Paisagem natural</h5>
                   <p>
                     Este conteúdo é apenas para reserva de espaço e para manter
@@ -276,9 +339,9 @@ export default function App() {
                   <button className="hidden-button">Saiba mais</button>
                 </div>
               </div>
-              <div data-aos="fade-up-right" className="project">
+              <div data-aos="fade-up-right" className={lightMode.project}>
                 <img src={imagelap} alt="Projeto 2" />
-                <div className="hidden-content">
+                <div className={lightMode.hiddenContent}>
                   <h5>Imagem de um laptop</h5>
                   <p>
                     Este conteúdo é apenas para reserva de espaço e para manter
@@ -288,9 +351,9 @@ export default function App() {
                   <button className="hidden-button">Saiba mais</button>
                 </div>
               </div>
-              <div data-aos="fade-up-right" className="project">
+              <div data-aos="fade-up-right" className={lightMode.project}>
                 <img src={jscode} alt="Projeto 3" />
-                <div className="hidden-content">
+                <div className={lightMode.hiddenContent}>
                   <h5>Codigo js</h5>
                   <p>
                     Este conteúdo é apenas para reserva de espaço e para manter
@@ -300,9 +363,9 @@ export default function App() {
                   <button className="hidden-button">Saiba mais</button>
                 </div>
               </div>
-              <div data-aos="fade-up-right" className="project">
+              <div data-aos="fade-up-right" className={lightMode.project}>
                 <img src={laptop} alt="Projeto 4" />
-                <div className="hidden-content">
+                <div className={lightMode.hiddenContent}>
                   <h5>Belo computador</h5>
                   <p>
                     Este conteúdo é apenas para reserva de espaço e para manter
@@ -317,10 +380,10 @@ export default function App() {
         </section>
       </Element>
       <Element name="skills">
-        <section id="skills" className="skills-container">
+        <section id="skills" className={lightMode.sills}>
           <h3>Minhas Habilidades</h3>
           <div className="skills-icons">
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#E44D26"
@@ -342,7 +405,7 @@ export default function App() {
               <p>HTML</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#1572B6"
@@ -372,7 +435,7 @@ export default function App() {
               <p>CSS</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#F0DB4F"
@@ -386,7 +449,7 @@ export default function App() {
               <p>JavaScript</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#8ed6fb"
@@ -400,7 +463,7 @@ export default function App() {
               <p>Webpack</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <g fill="#61DAFB">
                   <circle cx="64" cy="64" r="11.4"></circle>
@@ -410,7 +473,7 @@ export default function App() {
               <p>Reactjs</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#38bdf8"
@@ -424,7 +487,7 @@ export default function App() {
               <p>Tailwindcss</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="url(#a)"
@@ -487,13 +550,13 @@ export default function App() {
               <p>Nodejs</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path d="M126.67 98.44c-4.56 1.16-7.38.05-9.91-3.75-5.68-8.51-11.95-16.63-18-24.9-.78-1.07-1.59-2.12-2.6-3.45C89 76 81.85 85.2 75.14 94.77c-2.4 3.42-4.92 4.91-9.4 3.7l26.92-36.13L67.6 29.71c4.31-.84 7.29-.41 9.93 3.45 5.83 8.52 12.26 16.63 18.67 25.21 6.45-8.55 12.8-16.67 18.8-25.11 2.41-3.42 5-4.72 9.33-3.46-3.28 4.35-6.49 8.63-9.72 12.88-4.36 5.73-8.64 11.53-13.16 17.14-1.61 2-1.35 3.3.09 5.19C109.9 76 118.16 87.1 126.67 98.44zM1.33 61.74c.72-3.61 1.2-7.29 2.2-10.83 6-21.43 30.6-30.34 47.5-17.06C60.93 41.64 63.39 52.62 62.9 65H7.1c-.84 22.21 15.15 35.62 35.53 28.78 7.15-2.4 11.36-8 13.47-15 1.07-3.51 2.84-4.06 6.14-3.06-1.69 8.76-5.52 16.08-13.52 20.66-12 6.86-29.13 4.64-38.14-4.89C5.26 85.89 3 78.92 2 71.39c-.15-1.2-.46-2.38-.7-3.57q.03-3.04.03-6.08zm5.87-1.49h50.43c-.33-16.06-10.33-27.47-24-27.57-15-.12-25.78 11.02-26.43 27.57z"></path>
               </svg>
               <p>Express</p>
             </div>
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <defs>
                   <radialGradient
@@ -603,7 +666,7 @@ export default function App() {
               </svg>
               <p>SQL</p>
             </div>
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#00618A"
@@ -612,7 +675,7 @@ export default function App() {
               </svg>
               <p>Mysql</p>
             </div>
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path d="M93.809 92.112c.785-6.533.55-7.492 5.416-6.433l1.235.108c3.742.17 8.637-.602 11.513-1.938 6.191-2.873 9.861-7.668 3.758-6.409-13.924 2.873-14.881-1.842-14.881-1.842 14.703-21.815 20.849-49.508 15.543-56.287-14.47-18.489-39.517-9.746-39.936-9.52l-.134.025c-2.751-.571-5.83-.912-9.289-.968-6.301-.104-11.082 1.652-14.709 4.402 0 0-44.683-18.409-42.604 23.151.442 8.841 12.672 66.898 27.26 49.362 5.332-6.412 10.484-11.834 10.484-11.834 2.558 1.699 5.622 2.567 8.834 2.255l.249-.212c-.078.796-.044 1.575.099 2.497-3.757 4.199-2.653 4.936-10.166 6.482-7.602 1.566-3.136 4.355-.221 5.084 3.535.884 11.712 2.136 17.238-5.598l-.22.882c1.474 1.18 1.375 8.477 1.583 13.69.209 5.214.558 10.079 1.621 12.948 1.063 2.868 2.317 10.256 12.191 8.14 8.252-1.764 14.561-4.309 15.136-27.985"></path>
                 <path d="M75.458 125.256c-4.367 0-7.211-1.689-8.938-3.32-2.607-2.46-3.641-5.629-4.259-7.522l-.267-.79c-1.244-3.358-1.666-8.193-1.916-14.419-.038-.935-.064-1.898-.093-2.919-.021-.747-.047-1.684-.085-2.664a18.8 18.8 0 01-4.962 1.568c-3.079.526-6.389.356-9.84-.507-2.435-.609-4.965-1.871-6.407-3.82-4.203 3.681-8.212 3.182-10.396 2.453-3.853-1.285-7.301-4.896-10.542-11.037-2.309-4.375-4.542-10.075-6.638-16.943-3.65-11.96-5.969-24.557-6.175-28.693C4.292 23.698 7.777 14.44 15.296 9.129 27.157.751 45.128 5.678 51.68 7.915c4.402-2.653 9.581-3.944 15.433-3.851 3.143.051 6.136.327 8.916.823 2.9-.912 8.628-2.221 15.185-2.139 12.081.144 22.092 4.852 28.949 13.615 4.894 6.252 2.474 19.381.597 26.651-2.642 10.226-7.271 21.102-12.957 30.57 1.544.011 3.781-.174 6.961-.831 6.274-1.295 8.109 2.069 8.607 3.575 1.995 6.042-6.677 10.608-9.382 11.864-3.466 1.609-9.117 2.589-13.745 2.377l-.202-.013-1.216-.107-.12 1.014-.116.991c-.311 11.999-2.025 19.598-5.552 24.619-3.697 5.264-8.835 6.739-13.361 7.709-1.544.33-2.947.474-4.219.474zm-9.19-43.671c2.819 2.256 3.066 6.501 3.287 14.434.028.99.054 1.927.089 2.802.106 2.65.355 8.855 1.327 11.477.137.371.26.747.39 1.146 1.083 3.316 1.626 4.979 6.309 3.978 3.931-.843 5.952-1.599 7.534-3.851 2.299-3.274 3.585-9.86 3.821-19.575l4.783.116-4.75-.57.14-1.186c.455-3.91.783-6.734 3.396-8.602 2.097-1.498 4.486-1.353 6.389-1.01-2.091-1.58-2.669-3.433-2.823-4.193l-.399-1.965 1.121-1.663c6.457-9.58 11.781-21.354 14.609-32.304 2.906-11.251 2.02-17.226 1.134-18.356-11.729-14.987-32.068-8.799-34.192-8.097l-.359.194-1.8.335-.922-.191c-2.542-.528-5.366-.82-8.393-.869-4.756-.08-8.593 1.044-11.739 3.431l-2.183 1.655-2.533-1.043c-5.412-2.213-21.308-6.662-29.696-.721-4.656 3.298-6.777 9.76-6.305 19.207.156 3.119 2.275 14.926 5.771 26.377 4.831 15.825 9.221 21.082 11.054 21.693.32.108 1.15-.537 1.976-1.529a270.708 270.708 0 0110.694-12.07l2.77-2.915 3.349 2.225c1.35.897 2.839 1.406 4.368 1.502l7.987-6.812-1.157 11.808c-.026.265-.039.626.065 1.296l.348 2.238-1.51 1.688-.174.196 4.388 2.025 1.836-2.301z"></path>
@@ -628,7 +691,7 @@ export default function App() {
               <p>Postgresql</p>
             </div>
 
-            <div data-aos="fade-up-right" className="skill">
+            <div data-aos="fade-up-right" className={lightMode.skill}>
               <svg viewBox="0 0 128 128">
                 <path
                   fill="#2f406a"
@@ -785,25 +848,25 @@ export default function App() {
           
           <div className="social-card">
             <div className="div-card" data-aos="fade-up-left">
-              <div className="card">
+              <div className={lightMode.card}>
                 <FaGithubAlt color="#80B165" size={16} />
               </div>
               <p>GitHub</p>
             </div>
             <div className="div-card" data-aos="fade-up-left">
-              <div className="card">
+              <div className={lightMode.card}>
                 <FaLinkedinIn size={16} color="#80B165" />
               </div>
               <p>Linkedin</p>
             </div>
             <div className="div-card" data-aos="fade-up-left">
-              <div className="card">
+              <div className={lightMode.card}>
                 <FaFacebookF color="#80B165" size={16} />
               </div>
               <p>Facebook</p>
             </div>
             <div className="div-card" data-aos="fade-up-left">
-              <div className="card">
+              <div className={lightMode.card}>
                 <FaXTwitter style={{fontSize: 18}} color="#80B165" />
               </div>
               <p>Twiter</p>
@@ -811,18 +874,18 @@ export default function App() {
           </div>
         </section>
       </Element>
-      <div className="button-back">
+      <div className={lightMode.back}>
         <button className="back" onClick={scrollToTop}>
           Voltar para o topo
         </button>
       </div>
-      <footer>
+      <footer className={lightMode.footer}>
         <p>
           Entre em contato:{" "}
           <a href="mailto:testadoron1@gmail.com">envie um email</a>
         </p>
         <p>
-          &copy;Desenvolvido por: <strong>Lucas Manuel Alface</strong>
+          &copy; Desenvolvido por: <strong>Lucas Manuel Alface</strong>
         </p>
       </footer>
     </>

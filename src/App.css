@@ -3,6 +3,11 @@
   --background-color: #121212;
   --card-backcolor: #1e1e1e;
   --text-color: #C0C0C0;
+  --sp-color: #6A8E4E;
+  --bg-color: #F7F7F7;
+  --card-bg: #E0E0E0;
+  --t-color: #333333 ;
+  --bg-button: rgb(231, 199, 173);
 }
 * {
   margin: 0;
@@ -60,14 +65,62 @@
   src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype");
 }
 
-body {
+.body {
   font-family: "Comfortaa", Arial, sans-serif;
   line-height: 1.5;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-footer {
+.body-light {
+  font-family: "Comfortaa", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg-color);
+  color: var(--t-color);
+}
+
+.header-light h1 {
+  font-size: 20px;
+}
+
+.closed {
+ background-color: var(--card-bg);
+ width: 3.6rem;
+ height: 1.5rem;
+ border-radius: .8rem;
+ display: flex;
+ justify-content: start;
+ align-items: center;
+}
+
+.open {
+ background-color: var(--bg-button);
+ width: 3.6rem;
+ height: 1.5rem;
+ border-radius: .8rem;
+ display: flex;
+ justify-content: end;
+ align-items: center;
+}
+
+.button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--color-special);
+  cursor: pointer;
+  border: none;
+}
+
+.footer-light {
+  background-color: var(--card-bg);
+  color: var(--t-color);
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+}
+
+.footer {
   background-color: var(--card-backcolor);
   color: var(--text-color);
   text-align: center;
@@ -75,12 +128,16 @@ footer {
   font-size: 12px;
 }
 
-footer a {
+.visible-light {
+  color: var(--t-color)
+}
+
+.footer a {
   color: var(--color-special);
   text-decoration: none;
 }
 
-@media (min-width: 820px) AND (max-width: 1280px) {
+@media (min-width: 820px) and (max-width: 1280px) {
   p {
     font-size: 16px;
     max-width: 800px;
@@ -89,7 +146,7 @@ footer a {
     text-align: center;
   }
   
-  header {
+  .header {
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 15px 20px;
@@ -99,7 +156,21 @@ footer a {
     border-bottom: var(--color-special) 1px solid;
   }
   
-  header h1 {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header-light {
+    background-color: var(--bg-color);
+    color: var(--t-color);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: var(--sp-color) 1px solid;
+  }
+
+  .header-light h1 {
     font-size: 20px;
   }
   
@@ -158,6 +229,17 @@ footer a {
     text-align: center;
     padding: 40px 20px;
     background-color: var(--background-color);
+  }
+  
+  .container-presentation-light h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .container-presentation-light {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--bg-color);
   }
   
   .container-presentation h2 {
@@ -230,6 +312,40 @@ footer a {
     opacity: 0.5;
   }
   
+  /**/
+  .featured-project-light {
+    background-color: var(--card-bg);
+    padding: 0;
+    border-radius: 1px;
+    border-bottom: solid 3px var(--sp-color);
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .featured-project-light:hover img {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+  
+  .featured-project-light:hover .hidden-content-light {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .featured-project-light img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 1px;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    display: block;
+    opacity: 0.5;
+  }
+
   .menu {
     list-style-type: none;
     padding: 0;
@@ -252,6 +368,18 @@ footer a {
     z-index: 9999;
   }
   
+  .visible-light {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 9999;
+  }
+
   .menu-button {
     background: none;
     border: none;
@@ -281,6 +409,18 @@ footer a {
     position: relative;
     opacity: 0.5;
   }
+
+  .project-light {
+    background-color: var(--card-backcolor);
+    border-radius: 1px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0);
+    text-align: center;
+    border-bottom: var(--color-special) solid 3px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.5;
+  }
   
   .hidden-content {
     position: absolute;
@@ -295,8 +435,26 @@ footer a {
       visibility 0.3s ease,
       transform 0.3s ease;
   }
+
+  .hidden-content-light {
+    position: absolute;
+    background-color: var(--bg-color);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
+  }
   
   .hidden-content p {
+    font-size: 10px;
+  }
+
+  .hidden-content-light p {
     font-size: 10px;
   }
   
@@ -306,6 +464,12 @@ footer a {
     bottom: 0;
   }
   
+  .project-light:hover .hidden-content-light {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0;
+  }
+
   .hidden-button {
     margin-top: 10px;
     margin-bottom: 2px;
@@ -326,8 +490,18 @@ footer a {
     opacity: 1;
   }
 
+  .project-light:hover {
+    background-color: var(--bg-color);
+    opacity: 1;
+  }
+
   .featured-project img, 
   .project img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .featured-project-light img, 
+  .project-light img {
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   
@@ -344,6 +518,20 @@ footer a {
     opacity: 1;
     transform: translateY(0);
   }
+
+  .project-light img {
+    width: 100%;
+    opacity: 0.5;
+    max-height: 200px;
+    object-fit: cover;
+    margin: 0;
+    display: block;
+  }
+  
+  .project-light:hover img {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   .parallax {
     background: linear-gradient(rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.692)),
@@ -354,6 +542,17 @@ footer a {
     height: 500px;
     color: var(--text-color);
   }
+
+  .parallax-light {
+    background: linear-gradient(rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.692)),
+      url("./assets/laptop.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    color: var(--text-color);
+  }
+  
   
   strong {
     color: var(--color-special);
@@ -371,6 +570,26 @@ footer a {
     padding: 40px 0;
     text-align: center;
   }
+
+  .skills-container-light  {
+    background-color: var(--bg-color);
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  .skill-light {
+    background-color: var(--card-bg);
+    color: var(--t-color);
+    padding: 10px 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 20px;
+    border-bottom: solid 2px var(--sp-color);
+    margin-top: 25px;
+  }
+  
+.skill-light p {
+    font-size: 0.625rem;
+}
   
   .skills-icons {
     max-width: 1200px;
@@ -441,6 +660,17 @@ footer a {
     align-items: center;
     cursor: pointer;
   }
+
+  .card-light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
   
   .div-card > p {
     margin-top: 15px;
@@ -454,6 +684,14 @@ footer a {
     align-items: center;
     padding: 20px 60px;
   }
+
+  .button-back-light {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 60px;
+  }
   
   .back {
     padding: 10px 15px;
@@ -462,6 +700,16 @@ footer a {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+  }
+
+  .footer-light p {
+    font-size: .9rem;
+    line-height: 1.5;
+  }
+
+  .footer-light a {
+    color: var(--sp-color);
+    text-decoration: none;
   }
   
 }
