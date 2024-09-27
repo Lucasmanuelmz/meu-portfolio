@@ -506,7 +506,7 @@
   }
 
   .skill-light {
-    background-color: var(--card-backcolor);
+    background-color: var(--card-bg);
     color: var(--text-color);
     padding: 10px 15px;
     border-top-left-radius: 15px;
@@ -621,4 +621,9 @@
    font-size:  12px;
    text-align: center;
   }
+
+  .footer-light a {
+    text-decoration: none;
+    color: var(--sp-color);
+   }
 }
