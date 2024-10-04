@@ -4,7 +4,7 @@ import './media600.css';
 import './super.css';
 import "./App.css";
 import laptop from "./assets/laptop.jpg";
-import jscode from "./assets/jscode.jpg";
+import projeto from "./assets/projeto1.png";
 import paisage from "./assets/paisage.jpg";
 import imagelap from "./assets/image-lap.jpg";
 import { useEffect, useState } from "react";
@@ -328,15 +328,13 @@ useEffect(() => {
             <h4>Outros projetos</h4>
             <div className="project-grid">
               <div data-aos="fade-up-right" className={lightMode.project}>
-                <img src={paisage} alt="Projeto 1" />
+                <img src={projeto} alt="Projeto 1" />
                 <div className={lightMode.hiddenContent}>
-                  <h5>Paisagem natural</h5>
+                  <h5>Shop cart</h5>
                   <p>
-                    Este conteúdo é apenas para reserva de espaço e para manter
-                    as características visuais do espaço; não é um projeto do
-                    portfólio.
+                  Shop Cart is a project developed during the full-stack web development course offered by The Odin Project. The goal was to build an application that consumes an API using React.js, implementing dynamic and responsive shopping cart functionalities.
                   </p>
-                  <button className="hidden-button">Saiba mais</button>
+                  <a style={{textDecoration: 'none', fontSize: 14, color: '#efefef'}} href='https://fackeshopp.vercel.app/' className="hidden-button">Saiba mais</a>
                 </div>
               </div>
               <div data-aos="fade-up-right" className={lightMode.project}>
@@ -352,7 +350,7 @@ useEffect(() => {
                 </div>
               </div>
               <div data-aos="fade-up-right" className={lightMode.project}>
-                <img src={jscode} alt="Projeto 3" />
+                <img src={paisage} alt="Projeto 3" />
                 <div className={lightMode.hiddenContent}>
                   <h5>Codigo js</h5>
                   <p>
