@@ -1,7 +1,6 @@
-
-import './Media580.css';
-import './media600.css';
-import './super.css';
+import "./Media580.css";
+import "./media600.css";
+import "./super.css";
 import "./App.css";
 import laptop from "./assets/laptop.jpg";
 import projeto from "./assets/projeto1.png";
@@ -26,79 +25,91 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const [flyIn, setFlyIn] = useState(false);
-  const [invisible, setInvisible] = useState('invisible');
-  const [unview, setUnview] = useState('unview');
-  const [closed, setClosed] = useState('closed');
-  const [lightMode, setLightMode] = useState(
-    {
-    body:'body',
-    header: 'header',
-    visible: 'visible',
-    presentation: 'container-presentation',
-    paralax: 'parallax',
-    feature: 'featured-project',
-    sills: 'skills-container',
-    skill: 'skill',
-    card: 'card',
-    footer: 'footer',
-    hiddenContent: 'hidden-content',
-    project: 'project',
-    back: 'button-back',
-    iconColor: '#F7F7F7'
-  }
-);
+  const [invisible, setInvisible] = useState("invisible");
+  const [unview, setUnview] = useState("unview");
+  const [closed, setClosed] = useState("closed");
+  const [lightMode, setLightMode] = useState({
+    body: "body",
+    header: "header",
+    visible: "visible",
+    presentation: "container-presentation",
+    paralax: "parallax",
+    feature: "featured-project",
+    sills: "skills-container",
+    skill: "skill",
+    card: "card",
+    footer: "footer",
+    hiddenContent: "hidden-content",
+    project: "project",
+    back: "button-back",
+    iconColor: "#F7F7F7",
+  });
 
-const [isLightMode, setIsLightMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
 
-useEffect(() => {  
-  const body = document.querySelector('body');
-  if(!isLightMode) {
-    body.classList.add('body');
-    body.classList.remove('body-light');
-  } else {
-    body.classList.add('body-light');
-    body.classList.remove('body')
-  }
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (!isLightMode) {
+      body.classList.add("body");
+      body.classList.remove("body-light");
+    } else {
+      body.classList.add("body-light");
+      body.classList.remove("body");
+    }
 
-  return () => {
-    document.body.classList.remove('body', 'body-light')
-  }
-},[isLightMode])
+    return () => {
+      document.body.classList.remove("body", "body-light");
+    };
+  }, [isLightMode]);
 
   function modeLight() {
-    setIsLightMode(prevBg =>!prevBg);
-    setLightMode(prevMode => (
-      {
-      body: prevMode.body === 'body' ? 'body-light' : 'body',
-      header: prevMode.header === 'header' ? 'header-light' : 'header',
-      skills: prevMode.sills === 'skills-container'? 'skills-container':'skills-container-light',
-      skill: prevMode.skill === 'skill' ? 'skill-light' : 'skill',
-      presentation: prevMode.presentation === 'container-presentation'? 'container-presentation-light': 'container-presentation',
-      visible: prevMode.visible === 'visible'? 'visible-light': 'visible',
-      card: prevMode.card === 'card' ? 'card-light' : 'card',
-      feature: prevMode.feature === 'featured-project'? 'featured-project-light': 'featured-project',
-      hiddenContent: prevMode.hiddenContent === 'hidden-content'? 'hidden-content-light': 'hidden-content',
-      paralax: prevMode.paralax === 'parallax'? 'parallax-light': 'parallax',
-      project: prevMode.project === 'project'? 'project-light': 'project',
-      back: prevMode.back === 'button-back'? 'button-back-light': 'button-back',
-      footer: prevMode.footer === 'footer' ? 'footer-light' : 'footer',
-      iconColor: prevMode.iconColor === '#F7F7F7'? '#333': '#F7F7F7'
+    setIsLightMode((prevBg) => !prevBg);
+    setLightMode((prevMode) => ({
+      body: prevMode.body === "body" ? "body-light" : "body",
+      header: prevMode.header === "header" ? "header-light" : "header",
+      skills:
+        prevMode.sills === "skills-container"
+          ? "skills-container"
+          : "skills-container-light",
+      skill: prevMode.skill === "skill" ? "skill-light" : "skill",
+      presentation:
+        prevMode.presentation === "container-presentation"
+          ? "container-presentation-light"
+          : "container-presentation",
+      visible: prevMode.visible === "visible" ? "visible-light" : "visible",
+      card: prevMode.card === "card" ? "card-light" : "card",
+      feature:
+        prevMode.feature === "featured-project"
+          ? "featured-project-light"
+          : "featured-project",
+      hiddenContent:
+        prevMode.hiddenContent === "hidden-content"
+          ? "hidden-content-light"
+          : "hidden-content",
+      paralax: prevMode.paralax === "parallax" ? "parallax-light" : "parallax",
+      project: prevMode.project === "project" ? "project-light" : "project",
+      back:
+        prevMode.back === "button-back" ? "button-back-light" : "button-back",
+      footer: prevMode.footer === "footer" ? "footer-light" : "footer",
+      iconColor: prevMode.iconColor === "#F7F7F7" ? "#333" : "#F7F7F7",
     }));
   }
 
   function closeButtonAndOpen() {
-    closed === 'closed'? setClosed('open') : setClosed('closed')
+    closed === "closed" ? setClosed("open") : setClosed("closed");
   }
 
   function handleSetClass() {
-    invisible === 'invisible'? setInvisible('display'): setInvisible('invisible')
+    invisible === "invisible"
+      ? setInvisible("display")
+      : setInvisible("invisible");
   }
 
   function handleChangeClass() {
-    if(unview === 'unview') {
-      setUnview('view');
+    if (unview === "unview") {
+      setUnview("view");
     } else {
-      setUnview('unview')
+      setUnview("unview");
     }
   }
 
@@ -187,15 +198,15 @@ useEffect(() => {
         </button>
         <h1>Portfólio</h1>
         <div onClick={modeLight}>
-        <div onClick={closeButtonAndOpen} className={closed}>
-          <button  className="button"></button>
-        </div>
+          <div onClick={closeButtonAndOpen} className={closed}>
+            <button className="button"></button>
+          </div>
         </div>
       </header>
       <motion.div style={{ scaleX }} className="progress-bar" />
 
       <nav className={`menu ${open ? lightMode.visible : "hidden"}`}>
-      <h2>Bem vindo ao meu portfólio de desenvolvedor web : )</h2>
+        <h2>Bem vindo ao meu portfólio de desenvolvedor web : )</h2>
         <ul>
           <li>
             <Link
@@ -256,7 +267,10 @@ useEffect(() => {
         </ul>
       </nav>
       <Element name="about">
-        <section id={lightMode.about} className={`${lightMode.presentation} ${lightMode.paralax}`}>
+        <section
+          id={lightMode.about}
+          className={`${lightMode.presentation} ${lightMode.paralax}`}
+        >
           <div className={`container about ${flyIn ? "fly-in" : ""}`}>
             <h2>Desenvolvedor web full-stack</h2>
             <p>
@@ -280,8 +294,8 @@ useEffect(() => {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: '20px',
-              position: 'relative'
+              marginTop: "20px",
+              position: "relative",
             }}
           >
             Meus projetos{" "}
@@ -299,16 +313,20 @@ useEffect(() => {
                 justifyContent: "center",
                 marginLeft: "5px",
               }}
-
               onClick={handleSetClass}
             >
               &#8505;
             </span>
             <div className={invisible}>
-            <p>Este portfólio está em fase de desenvolvimento. Os projetos ainda não foram adicionados, e as imagens exibidas atualmente servem apenas como demonstração de como ficará o layout final. Em breve, todos os projetos serão devidamente incluídos!</p>
-          </div>
+              <p>
+                Este portfólio está em fase de desenvolvimento. Os projetos
+                ainda não foram adicionados, e as imagens exibidas atualmente
+                servem apenas como demonstração de como ficará o layout final.
+                Em breve, todos os projetos serão devidamente incluídos!
+              </p>
+            </div>
           </h3>
-          
+
           <div className="project-list">
             <h4>Destaques</h4>
             <div className="project-feature">
@@ -332,9 +350,23 @@ useEffect(() => {
                 <div className={lightMode.hiddenContent}>
                   <h5>Shop cart</h5>
                   <p>
-                  Shop Cart is a project developed during the full-stack web development course offered by The Odin Project. The goal was to build an application that consumes an API using React.js, implementing dynamic and responsive shopping cart functionalities.
+                    Shop Cart is a project developed during the full-stack web
+                    development course offered by The Odin Project. The goal was
+                    to build an application that consumes an API using React.js,
+                    implementing dynamic and responsive shopping cart
+                    functionalities.
                   </p>
-                  <a style={{textDecoration: 'none', fontSize: 14, color: '#efefef'}} href='https://fackeshopp.vercel.app/' className="hidden-button">Saiba mais</a>
+                  <a
+                    style={{
+                      textDecoration: "none",
+                      fontSize: 14,
+                      color: "#efefef",
+                    }}
+                    href="https://fackeshopp.vercel.app/"
+                    className="hidden-button"
+                  >
+                    Saiba mais
+                  </a>
                 </div>
               </div>
               <div data-aos="fade-up-right" className={lightMode.project}>
@@ -807,9 +839,17 @@ useEffect(() => {
       </Element>
       <Element name="contact">
         <section id="contact" className="social-contacts">
-          <div style={{position: 'relative', width: '100%'}}>
-          <div className={unview}>
-              <p>Atualmente, estou focado no aprimoramento das minhas habilidades em desenvolvimento web, dedicando meu tempo a estudos autodidatas e projetos práticos. Como parte desse processo, tenho optado por reduzir minha atividade em redes sociais, como Facebook, LinkedIn e X, para priorizar o aprendizado em fontes técnicas especializadas. Por esse motivo, minhas redes sociais podem estar temporariamente desatualizadas.</p>
+          <div style={{ position: "relative", width: "100%" }}>
+            <div className={unview}>
+              <p>
+                Atualmente, estou focado no aprimoramento das minhas habilidades
+                em desenvolvimento web, dedicando meu tempo a estudos
+                autodidatas e projetos práticos. Como parte desse processo,
+                tenho optado por reduzir minha atividade em redes sociais, como
+                Facebook, LinkedIn e X, para priorizar o aprendizado em fontes
+                técnicas especializadas. Por esse motivo, minhas redes sociais
+                podem estar temporariamente desatualizadas.
+              </p>
             </div>
           </div>
           <h3
@@ -818,8 +858,8 @@ useEffect(() => {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              position: 'relative',
-              maxWidth: '90%'
+              position: "relative",
+              maxWidth: "90%",
             }}
           >
             Contatos{" "}
@@ -843,7 +883,6 @@ useEffect(() => {
             </span>
           </h3>
 
-          
           <div className="social-card">
             <div className="div-card" data-aos="fade-up-left">
               <div className={lightMode.card}>
@@ -865,7 +904,7 @@ useEffect(() => {
             </div>
             <div className="div-card" data-aos="fade-up-left">
               <div className={lightMode.card}>
-                <FaXTwitter style={{fontSize: 18}} color="#80B165" />
+                <FaXTwitter style={{ fontSize: 18 }} color="#80B165" />
               </div>
               <p>Twiter</p>
             </div>

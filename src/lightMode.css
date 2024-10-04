@@ -1,7 +1,7 @@
 :root {
-  --color-special: #80B165;
-  
-  --temporal--bg:  #1e1e1e;
+  --color-special: #80b165;
+
+  --temporal--bg: #1e1e1e;
 }
 
 .body-light {
@@ -14,11 +14,11 @@
 .header-light {
   background-color: var(--bg-color);
   color: var(--text-color);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: var(--color-special) 1px solid;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--color-special) 1px solid;
 }
 
 .header-light h1 {
@@ -30,37 +30,37 @@
 }
 
 .closed {
- background-color: var(--card-bg);
- width: 3.6rem;
- height: 1.5rem;
- border-radius: .8rem;
- display: flex;
- justify-content: start;
- align-items: center;
+  background-color: var(--card-bg);
+  width: 3.6rem;
+  height: 1.5rem;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .open {
- background-color: var(--card-bg);
- width: 3.6rem;
- height: 1.5rem;
- border-radius: .8rem;
- display: flex;
- justify-content: end;
- align-items: center;
+  background-color: var(--card-bg);
+  width: 3.6rem;
+  height: 1.5rem;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .skill-light {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    padding: 10px 15px;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 20px;
-    border-bottom: solid 2px var(--color-special);
-    margin-top: 25px;
-  }
-  
-  .skill-light p {
-    font-size: 0.625rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 20px;
+  border-bottom: solid 2px var(--color-special);
+  margin-top: 25px;
+}
+
+.skill-light p {
+  font-size: 0.625rem;
 }
 
 .card-light {

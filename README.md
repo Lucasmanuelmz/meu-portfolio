@@ -13,5 +13,3 @@ Sei que minha jornada como desenvolvedor está longe de acabar. Quero continuar 
 Cada novo projeto trará novos desafios e, possivelmente, novas tecnologias para aprender. Mas uma coisa que aprendi é que o aprendizado na programação nunca termina — ele é contínuo.
 
 Se você quiser me ajudar a melhorar este portfólio ou tiver sugestões, ficarei feliz em ouvir. E claro, se você está em busca de um desenvolvedor full-stack dedicado e em constante evolução, estou disponível para novas oportunidades!
-
-
