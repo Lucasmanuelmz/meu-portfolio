@@ -52,6 +52,28 @@
   padding: 10px;
 }
 
+figure {
+  width: 200px;
+}
+
+figure img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.photo {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.photo p {
+  max-width: 500px;
+  text-align: justify;
+}
+
 .view p {
   font-size: 0.8rem;
 }

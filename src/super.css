@@ -135,7 +135,7 @@
   text-decoration: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   p {
     font-size: 16px;
     max-width: 800px;
@@ -145,6 +145,7 @@
   }
 
   .header {
+    margin: auto;
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 15px 20px;
@@ -152,10 +153,18 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: var(--color-special) 1px solid;
+    max-width: 1200px;
   }
 
   .header h1 {
     font-size: 20px;
+  }
+
+  .text-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .header-light {
@@ -166,6 +175,8 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: var(--sp-color) 1px solid;
+    max-width: 1200px;
+    margin: auto;
   }
 
   .header-light h1 {
@@ -190,6 +201,11 @@
     cursor: pointer;
   }
 
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
   nav ul li a::after {
     content: "";
     position: absolute;
@@ -207,9 +223,14 @@
   }
 
   h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
     color: var(--color-special);
+  }
+
+  .about h2 {
+    font-size: 3rem;
+    text-align: left;
   }
 
   .progress-bar {
@@ -249,19 +270,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px 20px;
-  }
-
-  .about {
-    transform: translateX(-100vw) rotate(-30deg) skew(10deg, 5deg);
-    opacity: 0;
-    transition:
-      transform 1.5s ease,
-      opacity 1.5s ease;
-  }
-
-  .about.fly-in {
-    transform: translateX(0) rotate(0deg) skew(0deg, 0deg);
-    opacity: 1;
   }
 
   h3 {
@@ -310,7 +318,6 @@
     opacity: 0.5;
   }
 
-  /**/
   .featured-project-light {
     background-color: var(--card-bg);
     padding: 0;
@@ -683,7 +690,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 20px 60px;
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
   }
 
   .button-back-light {
@@ -691,7 +700,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 20px 60px;
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
   }
 
   .back {

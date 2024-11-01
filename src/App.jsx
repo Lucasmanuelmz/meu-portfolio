@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaGithubAlt, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import author from './assets/author/author.jpg';
 import {
   Link,
   Element,
@@ -24,7 +25,6 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const [flyIn, setFlyIn] = useState(false);
   const [invisible, setInvisible] = useState("invisible");
   const [unview, setUnview] = useState("unview");
   const [closed, setClosed] = useState("closed");
@@ -114,14 +114,6 @@ export default function App() {
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setFlyIn(true);
-    }, 1300);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     AOS.init({ duration: 500 });
 
     Events.scrollEvent.register("begin", (to, element) => {
@@ -153,7 +145,8 @@ export default function App() {
 
   return (
     <>
-      <header className={lightMode.header}>
+      <header className=''>
+      <div className={lightMode.header}>
         <button
           onClick={() => setOpen(!open)}
           aria-expanded={open}
@@ -201,6 +194,7 @@ export default function App() {
           <div onClick={closeButtonAndOpen} className={closed}>
             <button className="button"></button>
           </div>
+        </div>
         </div>
       </header>
       <motion.div style={{ scaleX }} className="progress-bar" />
@@ -271,18 +265,24 @@ export default function App() {
           id={lightMode.about}
           className={`${lightMode.presentation} ${lightMode.paralax}`}
         >
-          <div className={`container about ${flyIn ? "fly-in" : ""}`}>
-            <h2>Desenvolvedor web full-stack</h2>
-            <p>
-              <strong>Olá, meu nome é Lucas.</strong> Sou um desenvolvedor web
-              full-stack apaixonado por criar soluções digitais inovadoras que
-              atendem às necessidades dos usuários e impulsionam o crescimento
-              das empresas. Com experiência em tecnologias modernas como
-              JavaScript, React e Node.js, estou sempre em busca de aprender e
-              aplicar as melhores práticas de desenvolvimento. Aprendo de forma
+          <div className='container about'>
+            <div className="photo">
+            <div className="text-content">
+            <h2 data-aos="fade-up-right">Desenvolvedor web full-stack</h2>
+            <p data-aos="fade-up-left">
+              Olá, meu nome é<strong> Lucas.</strong> Sou um desenvolvedor web
+              full-stack. Com aproximadamente 3 anos 
+              de experiência desenvolvendo projetos pessoais com tecnologias 
+              modernas como JavaScript, React e Node.js, estou sempre em busca de 
+              aprender e aplicar as melhores práticas de desenvolvimento. Aprendo de forma
               autodidata e valorizo a prática constante para aprimorar minhas
               habilidades.
             </p>
+            </div>
+            <figure>
+              <img src={author} alt="Lucas, desenvolvedor web fullstack" />
+            </figure>
+            </div>
           </div>
         </section>
       </Element>
@@ -884,18 +884,24 @@ export default function App() {
           </h3>
 
           <div className="social-card">
+            <a href="https://github.com/Lucasmanuelmz">
             <div className="div-card" data-aos="fade-up-left">
+              
               <div className={lightMode.card}>
+                
                 <FaGithubAlt color="#80B165" size={16} />
               </div>
               <p>GitHub</p>
             </div>
+            </a>
+            <a href="https://www.linkedin.com/in/lucas-manuel199988463/">
             <div className="div-card" data-aos="fade-up-left">
               <div className={lightMode.card}>
                 <FaLinkedinIn size={16} color="#80B165" />
               </div>
               <p>Linkedin</p>
             </div>
+            </a>
             <div className="div-card" data-aos="fade-up-left">
               <div className={lightMode.card}>
                 <FaFacebookF color="#80B165" size={16} />
