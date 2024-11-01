@@ -270,13 +270,7 @@ export default function App() {
             <div className="text-content">
             <h2 data-aos="fade-up-right">Desenvolvedor web full-stack</h2>
             <p data-aos="fade-up-left">
-              Olá, meu nome é<strong> Lucas.</strong> Sou um desenvolvedor web
-              full-stack. Com aproximadamente 3 anos 
-              de experiência desenvolvendo projetos pessoais com tecnologias 
-              modernas como JavaScript, React e Node.js, estou sempre em busca de 
-              aprender e aplicar as melhores práticas de desenvolvimento. Aprendo de forma
-              autodidata e valorizo a prática constante para aprimorar minhas
-              habilidades.
+            Olá, meu nome é <strong> Lucas</strong>. Sou <strong>desenvolvedor web full-stack</strong>, com aproximadamente três anos de experiência em projetos pessoais utilizando tecnologias modernas como JavaScript, React e Node.js. Estou sempre em busca de aprendizado e aplico as melhores práticas de desenvolvimento. Como autodidata, valorizo a prática constante para aprimorar minhas habilidades e garantir a qualidade dos projetos que desenvolvo.
             </p>
             </div>
             <figure>
