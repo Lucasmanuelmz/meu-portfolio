@@ -57,7 +57,7 @@ export default function ContactComponent({
       </h3>
 
       <div className="social-card">
-        <a href="https://github.com/Lucasmanuelmz">
+        <a className={strong} href="https://github.com/Lucasmanuelmz">
           <div className="div-card" data-aos="fade-up-left">
             <div className={lightMode.card}>
               <FaGithubAlt className={strong} size={16} />
@@ -65,7 +65,7 @@ export default function ContactComponent({
             <p>GitHub</p>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/lucas-manuel199988463/">
+        <a className={strong} href="https://www.linkedin.com/in/lucas-manuel199988463/">
           <div className="div-card" data-aos="fade-up-left">
             <div className={lightMode.card}>
               <FaLinkedinIn size={16} className={strong} />
@@ -73,19 +73,23 @@ export default function ContactComponent({
             <p>Linkedin</p>
           </div>
         </a>
+        <a className={strong} href="https://www.linkedin.com/in/lucas-manuel199988463/">
         <div className="div-card" data-aos="fade-up-left">
           <div className={lightMode.card}>
             <FaFacebookF className={strong} size={16} />
           </div>
           <p>Facebook</p>
         </div>
+        </a>
+        <a className={strong} href="https://www.linkedin.com/in/lucas-manuel199988463/">
         <div className="div-card" data-aos="fade-up-left">
           <div className={lightMode.card}>
             <FaXTwitter style={{ fontSize: 18 }} className={strong} />
           </div>
           <p>Twiter</p>
         </div>
-      </div>
+        </a>
+      </div> 
     </section>
   );
 }

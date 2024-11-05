@@ -373,6 +373,7 @@
 
   .strong {
     color: var(--color-special);
+    text-decoration: none;
   }
 
   .strong-light {

@@ -30,7 +30,7 @@
     flex-direction: row;
     background-color: #000;
     width: 100%;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     border-radius: 10px;
   }
@@ -152,6 +152,8 @@
     box-sizing: border-box;
     cursor: pointer;
     position: relative;
+    max-height: 250px;
+    margin: 20px 5px;
   }
 
   .featured-project-light {
@@ -169,7 +171,7 @@
   .featured-project img,
   .featured-project-light img {
     width: 100%;
-    max-width: 400px;
+    max-height: 250px;
     border-radius: 1px;
     object-fit: cover;
     margin: 0;
@@ -268,6 +270,8 @@
     cursor: pointer;
     position: relative;
     opacity: 0.5;
+    max-height: 210px;
+    margin: 20px 5px;
   }
 
   .project-light {
@@ -349,7 +353,7 @@
   .project-light img {
     width: 100%;
     opacity: 0.5;
-    max-height: 200px;
+    max-height: 210px;
     object-fit: cover;
     margin: 0;
     display: block;
@@ -489,7 +493,8 @@
     font-size: 0.9rem;
   }
 
-  .button-back {
+  .button-back, 
+  .button-back-light {
     background-color: var(--background-color);
     display: flex;
     justify-content: flex-end;
@@ -499,10 +504,6 @@
 
   .button-back-light {
     background-color: var(--bg-color);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px 20px;
   }
 
   .back {
@@ -532,5 +533,44 @@
   .footer-light a {
     text-decoration: none;
     color: var(--sp-color);
+  }
+}
+
+@media (width: 540px) {
+  .featured-project, 
+  .featured-project-light {
+    background-color: var(--card-backcolor);
+    padding: 0;
+    border-radius: 1px;
+    border-bottom: solid 3px var(--color-special);
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    max-height: 250px;
+    margin: 20px 5px;
+  }
+
+  .project, .project-light  {
+    background-color: var(--card-backcolor);
+    border-radius: 1px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0);
+    text-align: center;
+    border-bottom: var(--color-special) solid 3px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.5;
+    height: 210px;
+    margin: 20px 5px;
+  }
+
+  .featured-project img, 
+  .featured-project-light img {
+    height: 250px;
+  }
+
+  .project img, .project-light img {
+    height: 210px;
   }
 }
