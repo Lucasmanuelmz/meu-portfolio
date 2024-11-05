@@ -7,6 +7,7 @@
     padding: 0;
     overflow-x: hidden;
   }
+  
   p {
     font-size: 16px;
     max-width: 800px;
@@ -15,7 +16,7 @@
     text-align: center;
   }
 
-  .header {
+  .header, .header-light {
     width: 100%;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -23,26 +24,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: var(--color-special) 1px solid;
+    border-bottom: var(--color-special) 3px solid;
   }
 
-  .header h1 {
+  .header h1, .header-light h1 {
     font-size: 20px;
   }
 
   .header-light {
-    width: 100%;
     background-color: var(--bg-color);
     color: var(--t-color);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: var(--color-special) 1px solid;
-  }
-
-  .header-light h1 {
-    font-size: 20px;
+    border-bottom: var(--sp-color) 3px solid;
   }
 
   nav ul {
@@ -76,7 +68,7 @@
   }
 
   nav ul li a:hover::after {
-    transform: scaleX(1); /* Expande a escala para 1 ao passar o mouse */
+    transform: scaleX(1);
   }
 
   h2 {
@@ -118,44 +110,26 @@
     z-index: 9999;
   }
 
-  .container-presentation {
+  .container-presentation,
+  .container-presentation-light  {
     text-align: center;
     padding: 20px 10px;
     background-color: var(--background-color);
   }
 
-  .container-presentation h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-
-  .container-presentation-light {
-    text-align: center;
-    padding: 20px 10px;
-    background-color: var(--bg-color);
-  }
-
+  .container-presentation h2,
   .container-presentation-light h2 {
     font-size: 28px;
     margin-bottom: 10px;
   }
 
+  .container-presentation-light {
+    background-color: var(--bg-color);
+  }
+
   .container {
     width: 100%;
     margin: 0 auto;
-  }
-
-  .about {
-    transform: translateX(-100vw) rotate(-30deg) skew(10deg, 5deg);
-    opacity: 0;
-    transition:
-      transform 1.5s ease,
-      opacity 1.5s ease;
-  }
-
-  .about.fly-in {
-    transform: translateX(0) rotate(0deg) skew(0deg, 0deg);
-    opacity: 1;
   }
 
   h3 {
@@ -173,7 +147,7 @@
     padding-top: 20px;
   }
 
-  .featured-project {
+  .featured-project, .featured-project-light  {
     background-color: var(--card-backcolor);
     padding: 0;
     border-radius: 1px;
@@ -182,55 +156,31 @@
     box-sizing: border-box;
     cursor: pointer;
     position: relative;
-  }
-
-  .featured-project:hover img {
-    transform: scale(1.04);
-    opacity: 1;
-  }
-
-  .featured-project:hover .hidden-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .featured-project img {
-    width: 100%;
-    max-width: 380px;
-    border-radius: 1px;
-    object-fit: cover;
-    margin: 0;
-    padding: 0;
-    display: block;
-    box-sizing: border-box;
-    opacity: 0.5;
-    overflow: hidden;
+    margin: 0 5px;
+  min-height: 250px;
   }
 
   .featured-project-light {
     background-color: var(--card-bg);
-    padding: 0;
-    border-radius: 1px;
     border-bottom: solid 3px var(--sp-color);
-    text-align: center;
-    box-sizing: border-box;
-    cursor: pointer;
-    position: relative;
   }
 
+  .featured-project:hover img, 
   .featured-project-light:hover img {
     transform: scale(1.04);
     opacity: 1;
   }
 
+  .featured-project:hover .hidden-content, 
   .featured-project-light:hover .hidden-content-light {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
+  .featured-project img, 
   .featured-project-light img {
+    max-height: 250px;
     width: 100%;
     max-width: 380px;
     border-radius: 1px;
@@ -253,7 +203,7 @@
     display: none;
   }
 
-  .visible {
+  .visible, .visible-light  {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -265,27 +215,12 @@
     width: 100%;
     z-index: 9999;
   }
-
-  .visible h2 {
-    margin-bottom: 10px;
-    margin-top: 15px;
-    font-size: 22px;
-  }
-
+  
   .visible-light {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: var(--bg-color);
-    height: max-content;
-    padding: 20px 0;
-    position: absolute;
-    width: 100%;
-    z-index: 9999;
   }
 
-  .visible-light h2 {
+  .visible h2, .visible-light h2 {
     margin-bottom: 10px;
     margin-top: 15px;
     font-size: 22px;
@@ -296,21 +231,14 @@
     border: none;
     cursor: pointer;
   }
+
   .project-feature {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-  }
-
-  .project {
+  .project, .project-light {
     background-color: var(--card-backcolor);
     border-radius: 1px;
     overflow: hidden;
@@ -319,22 +247,16 @@
     border-bottom: var(--color-special) solid 3px;
     cursor: pointer;
     position: relative;
-    opacity: 0.5;
+    min-height: 230px;
+    margin: 0 5px;
   }
 
   .project-light {
     background-color: var(--card-bg);
-    border-radius: 1px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0);
-    text-align: center;
     border-bottom: var(--sp-color) solid 3px;
-    cursor: pointer;
-    position: relative;
-    opacity: 0.5;
   }
 
-  .hidden-content {
+  .hidden-content, .hidden-content-light  {
     position: absolute;
     background-color: #121212c2;
     left: 0;
@@ -358,25 +280,11 @@
     bottom: 0;
   }
 
-  .hidden-content-light {
-    position: absolute;
-    background-color: #121212c2;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease,
-      transform 0.3s ease;
-  }
-
   .hidden-content-light p {
     font-size: 10px;
   }
 
-  .project-light:hover .hidden-content-ligt {
+  .project-light:hover .hidden-content-light {
     opacity: 1;
     visibility: visible;
     bottom: 0;
@@ -421,10 +329,10 @@
       opacity 0.3s ease;
   }
 
-  .project img {
+  .project img, .project-light img {
     width: 100%;
     opacity: 0.5;
-    max-height: 200px;
+    max-height: 230px;
     object-fit: cover;
     margin: 0;
     display: block;
@@ -433,15 +341,6 @@
   .project:hover img {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  .project-light img {
-    width: 100%;
-    opacity: 0.5;
-    max-height: 200px;
-    object-fit: cover;
-    margin: 0;
-    display: block;
   }
 
   .project-.card-light img {
@@ -464,7 +363,7 @@
 
   .parallax-light {
     background: linear-gradient(rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.692)),
-      url("./assets/laptop.jpg");
+      url("./assets/light.jpg");
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
@@ -475,8 +374,12 @@
     overflow: hidden;
   }
 
-  strong {
+  .strong {
     color: var(--color-special);
+  }
+
+  .strong-light {
+    color: var(--sp-color);
   }
 
   h4 {
@@ -484,9 +387,10 @@
     max-width: fit-content;
     border-bottom-left-radius: 8px;
     font-size: 16px;
+    margin-left: 25px;
   }
 
-  .skills-container {
+  .skills-container, .skills-container-light {
     background-color: var(--background-color);
     padding: 40px 0;
     text-align: center;
@@ -494,8 +398,6 @@
 
   .skills-container-light {
     background-color: var(--bg-color);
-    padding: 40px 0;
-    text-align: center;
   }
 
   .skills-icons {
@@ -508,7 +410,7 @@
     padding: 10px 20px;
   }
 
-  .skill {
+  .skill,  .skill-light  {
     background-color: var(--card-backcolor);
     color: var(--text-color);
     padding: 10px 15px;
@@ -518,22 +420,14 @@
     margin-top: 25px;
   }
 
-  .skill p {
+  .skill p,  .skill-light p {
     font-size: 0.625rem;
   }
 
   .skill-light {
-    background-color: var(--card-backcolor);
-    color: var(--text-color);
-    padding: 10px 15px;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 20px;
-    border-bottom: solid 2px var(--color-special);
-    margin-top: 25px;
-  }
-
-  .skill-light p {
-    font-size: 0.625rem;
+    background-color: var(--card-bg);
+    color: var(--t-color);
+    border-bottom: solid 2px var(--sp-color);
   }
 
   svg {
@@ -571,7 +465,7 @@
     border: solid 0.1px var(--color-special);
   }
 
-  .card {
+  .card , .card-light{
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -583,14 +477,7 @@
   }
 
   .card-light {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     background-color: var(--card-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
   }
 
   .div-card > p {
@@ -598,7 +485,7 @@
     font-size: 0.9rem;
   }
 
-  .button-back {
+  .button-back,  .button-back-light {
     background-color: var(--background-color);
     display: flex;
     justify-content: flex-end;
@@ -608,10 +495,530 @@
 
   .button-back-light {
     background-color: var(--bg-color);
+  }
+
+  .back {
+    padding: 10px 15px;
+    background-color: var(--color-special);
+    color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .footer-light p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .footer-light a {
+    color: var(--sp-color);
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1200px) {
+  p {
+    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .header, 
+  .header-light {
+    margin: auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--color-special) 3px solid;
+    max-width: 1200px;
+  }
+
+  .header h1, .header-light h1 {
+    font-size: 20px;
+  }
+
+  .text-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-light {
+    background-color: var(--bg-color);
+    color: var(--t-color);
+    border-bottom: var(--sp-color) 3px solid;
+  }
+
+  nav ul {
+    list-style: none;
+    display: block;
+  }
+
+  nav ul li {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+  nav ul li a {
+    color: var(--color-special);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--color-special);
+    transform: scaleX(0);
+    transition: transform 1s ease;
+  }
+
+  nav ul li a:hover::after {
+    transform: scaleX(1); 
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: var(--color-special);
+  }
+
+  .about h2 {
+    font-size: 3rem;
+    text-align: left;
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--color-special);
+    transform-origin: 0%;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .container-presentation, 
+  .container-presentation-light {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--background-color);
+  }
+
+  .container-presentation h2,
+  .container-presentation-light h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .container-presentation-light {
+    background-color: var(--bg-color);
+    color: var(--t-color);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .project-list {
+    max-width: 1200px;
+    padding: 10px 20px;
+    gap: 30px;
+    margin: 60px 0;
+  }
+
+  .featured-project, 
+  .featured-project-light {
+    background-color: var(--card-backcolor);
+    padding: 0;
+    border-radius: 1px;
+    border-bottom: solid 3px var(--color-special);
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    margin: 20px 6px;
+    min-height: 250px;
+  }
+
+  .featured-project:hover img {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+  .featured-project:hover .hidden-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .featured-project img,  
+  .featured-project-light img {
+    height: 250px;
+    width: 100%;
+    border-radius: 1px;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    display: block;
+    opacity: 0.5;
+    object-fit: cover;
+  }
+
+  .featured-project-light {
+    background-color: var(--card-bg);
+    border-bottom: solid 3px var(--sp-color);
+  }
+
+  .featured-project-light:hover img {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+  .featured-project-light:hover .hidden-content-light {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible, .visible-light {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 9999;
+  }
+
+  .visible-light {
+    background-color: var(--bg-color);
+  }
+
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .project-feature {
+    display: flex;
+    width: max-content;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .project-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 260px;
+    width: max-content;
+    justify-content: flex-start;
+    gap: 20px;
+    z-index: 999;
+  }
+
+  .project, .project-light{
+    background-color: var(--card-backcolor);
+    border-radius: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0);
+    text-align: center;
+    border-bottom: var(--color-special) solid 3px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.5;
+    margin: 20px 6px;
+    min-height: 210px;
+  }
+
+  .hidden-content,  
+  .hidden-content-light {
+    position: absolute;
+    background-color: var(--card-backcolor);
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .hidden-content-light {
+    background-color: var(--bg-color);
+  }
+
+  .hidden-content p, 
+  .hidden-content-light p {
+    font-size: 10px;
+  }
+
+  .project:hover .hidden-content {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0;
+  }
+
+  .project-light {
+    border-bottom: 5px solid var(--sp-color);
+    opacity: 1;
+  }
+
+  .project-light:hover .hidden-content-light {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0;
+  }
+
+  .hidden-button {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    padding: 8px 16px;
+    border: none;
+    background-color: var(--color-special);
+    color: #1e1e1e;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .hidden-button:hover {
+    background-color: var(--color-special);
+  }
+
+  .project:hover {
+    background-color: #212121;
+    opacity: 1;
+  }
+
+  .project-light:hover {
+    background-color: var(--bg-color);
+    opacity: 1;
+  }
+
+  .featured-project img,
+  .project img {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .featured-project-light img,
+  .project-light img {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .project img, 
+  .project-light img {
+    width: 100%;
+    opacity: 0.5;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    display: block;
+    height: 210px;
+  }
+
+  .project:hover img, 
+  .project-light:hover img {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .parallax, 
+  .parallax-light{
+    background: linear-gradient(rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.692)),
+      url("./assets/computador.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    color: var(--text-color);
+  }
+
+  .parallax-light {
+    background:
+    url("./assets/light.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    color: var(--t-color);
+  }
+
+  .strong {
+    color: var(--color-special);
+  }
+
+  .strong-light {
+    color: var(--sp-color);
+  }
+
+  h4 {
+    border-bottom: solid 0.6px var(--color-special);
+    max-width: fit-content;
+    border-bottom-left-radius: 8px;
+    font-size: 16px;
+    margin-left: 25px;
+  }
+
+  .skills-container, 
+  .skills-container-light  {
+    background-color: var(--background-color);
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  .skills-container-light {
+    background-color: var(--bg-color);
+  }
+
+  .skill, .skill-light {
+    background-color: var(--card-backcolor);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 20px;
+    border-bottom: solid 4px var(--color-special);
+    margin-top: 25px;
+  }
+
+  .skill-light {
+    background-color: var(--card-bg);
+    color: var(--t-color);
+    border-bottom: solid 4px var(--sp-color);
+
+  }
+
+  .skill p, .skill-light p {
+    font-size: 0.625rem;
+  }
+
+  .skills-icons {
+    max-width: 860px;
+    margin: 60px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 40px;
+  }
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .social-contacts {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .social-card {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+  }
+
+  .div-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .div-card:hover {
+    border: solid 0.1px var(--color-special);
+  }
+
+  .div-card-light:hover {
+    border: solid 0.1px var(--sp-color);
+  }
+
+  .card, .card-light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--card-backcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .card-light {
+    background-color: var(--card-bg);
+  }
+
+  .div-card > p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+
+  .button-back, 
+  .button-back-light {
+    background-color: var(--background-color);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 20px 20px;
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
+  }
+
+  .button-back-light {
+    background-color: var(--bg-color);
   }
 
   .back {

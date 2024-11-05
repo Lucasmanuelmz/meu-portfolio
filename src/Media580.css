@@ -3,7 +3,7 @@
   body {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 5px;
     overflow-x: hidden;
   }
 
@@ -14,7 +14,32 @@
     text-align: justify;
   }
 
-  .header {
+  .text-content p {
+    min-width: 60px;
+    font-size: 12px;
+  }
+
+  .text-content {
+    max-width: 280px;
+    background-color: #000;
+
+  }
+
+  .photo {
+    display: flex;
+    flex-direction: row;
+    background-color: #000;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  .photo figure {
+    max-width: 60px;
+  }
+
+  .header, .header-light {
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 15px 20px;
@@ -25,30 +50,18 @@
     max-width: 100%;
   }
 
-  .header h1 {
+  .header h1,  .header-light h1  {
     font-size: 20px;
   }
 
   .header-light {
     background-color: var(--bg-color);
     color: var(--t-color);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: var(--color-special) 1px solid;
-    max-width: 100%;
-  }
-
-  .header-light h1 {
-    font-size: 20px;
-  }
-
-  nav ul {
-    list-style: none;
+    border-bottom: var(--sp-color) 3px solid;
   }
 
   nav ul li {
+    list-style: none;
     margin-top: 30px;
     font-size: 16px;
   }
@@ -95,45 +108,25 @@
     z-index: 9999;
   }
 
-  .container-presentation {
+  .container-presentation, 
+  .container-presentation-light {
     text-align: center;
     padding: 20px 10px;
     background-color: var(--background-color);
   }
 
-  .container-presentation h2 {
+  .container-presentation h2, .container-presentation-light h2   {
     font-size: 20px;
     margin-bottom: 15px;
   }
 
   .container-presentation-light {
-    text-align: center;
-    padding: 20px 10px;
     background-color: var(--bg-color);
-  }
-
-  .container-presentation-light h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
   }
 
   .container {
     width: 100%;
     margin: 0 auto;
-    padding: 20px 10px;
-  }
-
-  .about {
-    transform: translateX(-100vw) rotate(-30deg) skew(10deg, 5deg);
-    opacity: 0;
-    transition:
-      transform 1.5s ease,
-      opacity 1.5s ease;
-  }
-
-  .about.fly-in {
-    transform: translateX(0) rotate(0deg) skew(0deg, 0deg);
-    opacity: 1;
   }
 
   h3 {
@@ -149,7 +142,8 @@
     margin: 60px 0;
   }
 
-  .featured-project {
+  .featured-project, 
+  .featured-project-light {
     background-color: var(--card-backcolor);
     padding: 0;
     border-radius: 1px;
@@ -160,50 +154,19 @@
     position: relative;
   }
 
-  .featured-project:hover img {
-    transform: scale(1.04);
-    opacity: 1;
-  }
-
-  .featured-project:hover .hidden-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .featured-project img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 1px;
-    object-fit: cover;
-    margin: 0;
-    padding: 0;
-    display: block;
-    opacity: 0.5;
-  }
-
   .featured-project-light {
     background-color: var(--card-bg);
-    padding: 0;
-    border-radius: 1px;
     border-bottom: solid 3px var(--sp-color);
-    text-align: center;
-    box-sizing: border-box;
-    cursor: pointer;
-    position: relative;
   }
 
-  .featured-project-light:hover img {
-    transform: scale(1.04);
-    opacity: 1;
-  }
-
+  .featured-project:hover .hidden-content ,
   .featured-project-light:hover .hidden-content-light {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
+  .featured-project img,
   .featured-project-light img {
     width: 100%;
     max-width: 400px;
@@ -215,6 +178,13 @@
     opacity: 0.5;
   }
 
+  .featured-project-light:hover img,
+  .featured-project:hover img {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+
   .menu {
     list-style-type: none;
     padding: 0;
@@ -225,7 +195,7 @@
     display: none;
   }
 
-  .visible {
+  .visible, .visible-light  {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -239,16 +209,7 @@
   }
 
   .visible-light {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: var(--bg-color);
-    height: max-content;
-    padding-bottom: 20px;
-    position: absolute;
-    width: 100vw;
-    z-index: 9999;
   }
 
   .display {
@@ -273,13 +234,7 @@
     display: none;
   }
 
-  .visible h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .visible-light h2 {
+  .visible h2,  .visible-light h2 {
     font-size: 20px;
     margin-bottom: 15px;
     text-align: center;
@@ -303,7 +258,7 @@
     gap: 15px;
   }
 
-  .project {
+  .project, .project-light  {
     background-color: var(--card-backcolor);
     border-radius: 1px;
     overflow: hidden;
@@ -317,17 +272,11 @@
 
   .project-light {
     background-color: var(--card-bg);
-    border-radius: 1px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0);
-    text-align: center;
     border-bottom: var(--sp-color) solid 3px;
-    cursor: pointer;
-    position: relative;
-    opacity: 0.5;
   }
 
-  .hidden-content {
+  .hidden-content, 
+  .hidden-content-light {
     position: absolute;
     background-color: var(--card-backcolor);
     left: 0;
@@ -342,34 +291,16 @@
   }
 
   .hidden-content-light {
-    position: absolute;
     background-color: var(--card-bg);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease,
-      transform 0.3s ease;
   }
 
-  .hidden-content p {
-    font-size: 10px;
-  }
-
-  .project:hover .hidden-content {
-    opacity: 1;
-    visibility: visible;
-    bottom: 0;
-  }
-
+  .hidden-content p,
   .hidden-content-light p {
     font-size: 10px;
   }
 
-  .project-light:hover .hidden-content-light {
+  .project:hover .hidden-content,
+  .project-light:hover .hidden-content-light  {
     opacity: 1;
     visibility: visible;
     bottom: 0;
@@ -414,15 +345,7 @@
       opacity 0.3s ease;
   }
 
-  .project img {
-    width: 100%;
-    opacity: 0.5;
-    max-height: 200px;
-    object-fit: cover;
-    margin: 0;
-    display: block;
-  }
-
+  .project img, 
   .project-light img {
     width: 100%;
     opacity: 0.5;
@@ -432,11 +355,7 @@
     display: block;
   }
 
-  .project:hover img {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+  .project:hover img,
   .project-light:hover img {
     opacity: 1;
     transform: translateY(0);
@@ -473,7 +392,8 @@
     font-size: 16px;
   }
 
-  .skills-container {
+  .skills-container, 
+  .skills-container-light  {
     background-color: var(--background-color);
     padding: 40px 0;
     text-align: center;
@@ -481,8 +401,6 @@
 
   .skills-container-light {
     background-color: var(--bg-color);
-    padding: 40px 0;
-    text-align: center;
   }
 
   .skills-icons {
@@ -495,7 +413,7 @@
     padding: 10px 20px;
   }
 
-  .skill {
+  .skill,  .skill-light {
     background-color: var(--card-backcolor);
     color: var(--text-color);
     padding: 10px 15px;
@@ -505,22 +423,14 @@
     margin-top: 25px;
   }
 
-  .skill p {
+  .skill p,  .skill-light p {
     font-size: 0.625rem;
   }
 
   .skill-light {
     background-color: var(--card-bg);
     color: var(--text-color);
-    padding: 10px 15px;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 20px;
-    border-bottom: solid 2px var(--color-special);
-    margin-top: 25px;
-  }
-
-  .skill-light p {
-    font-size: 0.625rem;
+    border-bottom: solid 2px var(--sp-color);
   }
 
   svg {
@@ -559,7 +469,7 @@
     border: solid 0.1px var(--color-special);
   }
 
-  .card {
+  .card, .card-light {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -571,14 +481,7 @@
   }
 
   .card-light {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     background-color: var(--card-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
   }
 
   .div-card > p {

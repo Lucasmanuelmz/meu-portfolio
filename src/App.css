@@ -3,16 +3,40 @@
   --background-color: #121212;
   --card-backcolor: #1e1e1e;
   --text-color: #c0c0c0;
-  --sp-color: #6a8e4e;
+  --sp-color: #1d5b3a;
   --bg-color: #f7f7f7;
   --card-bg: #e0e0e0;
-  --t-color: #333333;
+  --t-color: #4a4a4a;
   --bg-button: rgb(231, 199, 173);
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.body::-webkit-scrollbar, 
+.body-light::-webkit-scrollbar {
+  width: 12px;
+}
+
+.body::-webkit-scrollbar-track {
+  background-color: var(--background-color);
+}
+
+.body-light::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+.body::-webkit-scrollbar-thumb, 
+.body-light::-webkit-scrollbar-thumb {
+  background-color: var(--color-special);
+  border-radius: 15px;
+}
+
+.body-light::-webkit-scrollbar-thumb {
+  background-color: var(--sp-color);
 }
 
 .display {
@@ -34,6 +58,10 @@
   font-size: 0.8rem;
 }
 
+.body, .body-light {
+  border: none;
+}
+
 .invisible {
   display: none;
 }
@@ -53,13 +81,32 @@
 }
 
 figure {
-  width: 200px;
+  max-width: 320px;
+  height: 300px;
 }
 
 figure img {
   width: 100%;
   display: block;
   border-radius: 10px;
+  max-height: 300px;
+}
+
+.signs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-signs {
+  background-color: var(--card-backcolor);
+  border: none;
+  height: 80px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--background-color);
 }
 
 .photo {
@@ -159,7 +206,7 @@ figure img {
   text-decoration: none;
 }
 
-@media (min-width: 820px) and (max-width: 1280px) {
+@media (min-width: 820px) and (max-width: 1200px) {
   p {
     font-size: 16px;
     max-width: 800px;
@@ -175,7 +222,7 @@ figure img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: var(--color-special) 1px solid;
+    border-bottom: var(--color-special) 3px solid;
   }
 
   .header h1 {
@@ -206,12 +253,16 @@ figure img {
     font-size: 18px;
   }
 
-  nav ul li a {
+  nav ul li .strong, .strong-light {
     color: var(--color-special);
     text-decoration: none;
     position: relative;
     overflow: hidden;
     cursor: pointer;
+  }
+
+  nav ul li .strong-light {
+    color: var(--sp-color);
   }
 
   nav ul li a::after {
@@ -227,13 +278,12 @@ figure img {
   }
 
   nav ul li a:hover::after {
-    transform: scaleX(1); /* Expande a escala para 1 ao passar o mouse */
+    transform: scaleX(1); 
   }
 
   h2 {
     font-size: 24px;
     margin-bottom: 30px;
-    color: var(--color-special);
   }
 
   .progress-bar {
@@ -334,7 +384,6 @@ figure img {
     opacity: 0.5;
   }
 
-  /**/
   .featured-project-light {
     background-color: var(--card-bg);
     padding: 0;
@@ -414,7 +463,7 @@ figure img {
   }
 
   .project-grid {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 15px;
@@ -426,7 +475,7 @@ figure img {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0);
     text-align: center;
-    border-bottom: var(--color-special) solid 3px;
+    border-bottom: var(--color-special) solid 5px;
     cursor: pointer;
     position: relative;
     opacity: 0.5;
@@ -438,7 +487,7 @@ figure img {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0);
     text-align: center;
-    border-bottom: var(--color-special) solid 3px;
+    border-bottom: var(--sp-color) solid 5px;
     cursor: pointer;
     position: relative;
     opacity: 0.5;
