@@ -131,8 +131,7 @@
 
   .project-list {
     max-width: 1200px;
-    padding: 10px 20px;
-    gap: 30px;
+    gap: 10px;
     margin: 60px 0;
   }
 
@@ -148,7 +147,7 @@
     position: relative;
     max-width: 350px;
     min-height: 280px;
-    margin: 20px 10px 0;
+    margin: 20px 10px;
   }
 
   .featured-project:hover img {
@@ -264,6 +263,7 @@
     opacity: 0.5;
     width: 360px;
     height: 250px;
+    margin: 20px 10px;
   }
 
   .hidden-content,  
