@@ -1,3 +1,5 @@
+import { FadeIn, getIncrementor } from 'anima-react';
+
 export default function Presentation({
   lightModeAbout,
   lightModePresentation,
@@ -9,16 +11,21 @@ export default function Presentation({
   textColor,
   btnContact
 }) {
+
+  const getDelay = getIncrementor(0, 0.15);
+
   return (
     <section
       id={lightModeAbout}
       className={`${lightModePresentation} ${lightModeParalax}`}
     >
-      <div className="container about">
+      <div className="container">
         <div className={photo}>
           <div className={content}>
-            <h2 className={strong} data-aos="fade-up-right">Desenvolvedor web full-stack</h2>
-            <p className={textColor} data-aos="fade-up-left">
+          <FadeIn orientation="up" delay={getDelay()}>
+            <h2 className={strong}>Desenvolvedor web full-stack</h2>
+            </FadeIn>
+            <p className={textColor}>
               Olá, meu nome é <strong className={strong}> Lucas</strong>. Sou{" "}
               <strong className={strong}>desenvolvedor web full-stack</strong>, com aproximadamente
               três anos de experiência em projetos pessoais utilizando

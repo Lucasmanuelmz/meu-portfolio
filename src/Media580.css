@@ -117,14 +117,6 @@
     transform: scaleX(1); 
   }
 
-  h2 {
-    font-size: 20px;
-    margin-bottom: 30px;
-    margin-top: 20px;
-    color: var(--color-special);
-    padding: 5px;
-  }
-
   .progress-bar {
     position: fixed;
     top: 0;
@@ -138,14 +130,14 @@
 
   .container-presentation, 
   .container-presentation-light {
-    text-align: center;
     padding: 20px 10px;
     background-color: var(--background-color);
   }
 
-  .container-presentation h2, .container-presentation-light h2   {
+  .container-presentation h2, 
+  .container-presentation-light h2   {
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .container-presentation-light {

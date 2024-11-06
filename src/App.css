@@ -108,15 +108,16 @@ figure img {
 .btn-contact-light {
   border: none;
   padding: 0.8rem 1.8rem;
-  color: var(--color-special);
+  color: var(--t-color);
   background-color: var(--bg-color);
   border-radius: 1rem;
   margin: 3rem 1rem;
+  cursor: pointer;
 }
 
 .btn-contact-light {
   background-color: var(--background-color);
-  color: #1d5b3a;
+  color: var(--text-color);
 }
 
 .btn-contact:hover {
@@ -143,6 +144,7 @@ figure img {
 .photo, .photo-light {
   display: grid;
   grid-template-columns: 3fr 1fr ;
+  justify-content: start;
   gap: 5px;
 }
 
@@ -158,11 +160,6 @@ figure img {
 .text-content .text-color, 
 .text-content-light .text-color-light {
   text-align: justify;
-}
-
-h2 {
-  width: 100%;
-  padding: 10px 20px;
 }
 
 .view p {
