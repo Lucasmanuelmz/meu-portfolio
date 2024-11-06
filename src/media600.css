@@ -602,6 +602,7 @@
     margin-bottom: 40px;
     color: var(--color-special);
     margin-left: 20px;
+    text-align: left;
   }
 
   .about h2 {
