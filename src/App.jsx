@@ -38,6 +38,7 @@ export default function App() {
     strong: 'strong',
     photo: 'photo',
     content: 'text-content',
+    textColor: 'text-color',
     titlePresentation: 'title-presentation',
     visible: "visible",
     presentation: "container-presentation",
