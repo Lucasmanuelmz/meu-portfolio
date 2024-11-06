@@ -104,6 +104,29 @@ figure img {
   color: var(--t-color);
 }
 
+.btn-contact, 
+.btn-contact-light {
+  border: none;
+  padding: 0.8rem 1.8rem;
+  color: var(--color-special);
+  background-color: var(--bg-color);
+  border-radius: 1rem;
+  margin: 3rem 1rem;
+}
+
+.btn-contact-light {
+  background-color: var(--background-color);
+  color: #1d5b3a;
+}
+
+.btn-contact:hover {
+  background-color: var(--card-bg);
+}
+
+.btn-contact-light:hover {
+  background-color: var(--card-backcolor);
+}
+
 .signs {
   display: flex;
   justify-content: space-between;
@@ -138,8 +161,8 @@ figure img {
 }
 
 h2 {
-  text-align: center;
-  padding: 0 30px;
+  width: 100%;
+  padding: 10px 20px;
 }
 
 .view p {

@@ -24,7 +24,8 @@ export default function HighlightProject({
   strong
 }) {
   const properties = {
-    prevArrow: <button style={{ ...buttonStyle }}><GrFormPrevious size={28} className={strong} /></button>,
+    prevArrow: <button style={{ ...buttonStyle }}>
+      <GrFormPrevious size={28} className={strong} /></button>,
     nextArrow: <button style={{ ...buttonStyle }}><MdOutlineNavigateNext size={28} className={strong} /></button>
   }
   return (

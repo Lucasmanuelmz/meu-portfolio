@@ -6,7 +6,8 @@ export default function Presentation({
   strong,
   photo,
   content,
-  textColor
+  textColor,
+  btnContact
 }) {
   return (
     <section
@@ -27,11 +28,17 @@ export default function Presentation({
               para aprimorar minhas habilidades e garantir a qualidade dos
               projetos que desenvolvo.
             </p>
+            <div className="button-container">
+              <button className={btnContact}>Sobre</button>
+              <button className={btnContact}>Contato</button>
+            </div>
+            
           </div>
           <figure>
             <img src={author} alt="Lucas, desenvolvedor web fullstack" />
           </figure>
         </div>
+        
       </div>
     </section>
   );
