@@ -90,16 +90,18 @@
   padding: 10px;
 }
 
-figure {
-  max-width: 320px;
-  height: 300px;
-}
-
 figure img {
   width: 100%;
   display: block;
   border-radius: 10px;
-  max-height: 300px;
+}
+
+.text-color {
+  color: var(--text-color);
+}
+
+.text-color-light {
+  color: var(--t-color);
 }
 
 .signs {
@@ -115,16 +117,29 @@ figure img {
   cursor: pointer;
 }
 
-.photo {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: center;
+.photo, .photo-light {
+  display: grid;
+  grid-template-columns: 3fr 1fr ;
+  gap: 5px;
 }
 
-.photo p {
-  max-width: 500px;
+.photo figure, .photo-light figure {
+  padding: 25px  5px;
+}
+.photo .text-content, 
+.photo-light .text-content-light {
   text-align: justify;
+  padding: 10px;
+}
+
+.text-content .text-color, 
+.text-content-light .text-color-light {
+  text-align: justify;
+}
+
+h2 {
+  text-align: center;
+  padding: 0 30px;
 }
 
 .view p {
@@ -194,6 +209,17 @@ figure img {
   padding: 20px;
   font-size: 12px;
 }
+
+.hidden-content, 
+  .hidden-content-light {
+    padding: 10px;
+  }
+
+  .hidden-content a, 
+  .hidden-content-light a {
+    margin-top: 10px;
+    display: block;
+  }
 
 .footer {
   background-color: var(--card-backcolor);

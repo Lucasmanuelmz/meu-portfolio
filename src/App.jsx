@@ -36,6 +36,8 @@ export default function App() {
     body: "body",
     header: "header",
     strong: 'strong',
+    photo: 'photo',
+    content: 'text-content',
     titlePresentation: 'title-presentation',
     visible: "visible",
     presentation: "container-presentation",
@@ -74,6 +76,9 @@ export default function App() {
       body: prevMode.body === "body" ? "body-light" : "body",
       header: prevMode.header === "header" ? "header-light" : "header",
       strong: prevMode.strong === "strong"? "strong-light" : "strong",
+      photo: prevMode.photo === "photo"? "photo-light" : 'photo',
+      content: prevMode.content === 'text-content'? 'text-content-light': 'text-content',
+      textColor: prevMode.textColor ==='text-color'? 'text-color-light': 'text-color',
       skills:
         prevMode.skills === "skills-container"
           ? "skills-container-light"
@@ -171,6 +176,8 @@ export default function App() {
           lightModeParalax={lightMode.paralax}
           lightModePresentation={lightMode.presentation}
           author={author} strong={lightMode.strong}
+          photo={lightMode.photo}
+          content={lightMode.content} textColor={lightMode.textColor}
         />
       </Element>
       <Element name="projects">

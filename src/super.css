@@ -80,6 +80,7 @@
     font-size: 1.5rem;
     margin-bottom: 40px;
     color: var(--color-special);
+    margin-left: 10px;
   }
 
   .about h2 {
@@ -159,6 +160,17 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+
+  .hidden-content, 
+  .hidden-content-light {
+    padding: 10px;
+  }
+
+  .hidden-content a, 
+  .hidden-content-light a {
+    margin-top: 10px;
+    display: block;
   }
 
   .featured-project img,  
@@ -362,7 +374,7 @@
   }
 
   .parallax-light {
-    background:
+    background:  linear-gradient(#ffffffd3, #ffffffd3),
     url("./assets/light.jpg");
     background-attachment: fixed;
     background-size: cover;

@@ -139,7 +139,7 @@ export default function HeaderComponent({
 HeaderComponent.propTypes = {
   lightMode: PropTypes.object.isRequired,
   setOpen: PropTypes.func.isRequired,
-  open: PropTypes.node.isRequired,
+  open: PropTypes.bool.isRequired,
   modeLight: PropTypes.func.isRequired,
   closeButtonAndOpen: PropTypes.func.isRequired,
   scaleX: PropTypes.instanceOf(MotionValue).isRequired,

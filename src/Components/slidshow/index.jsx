@@ -28,7 +28,7 @@ export default function HighlightProject({
     nextArrow: <button style={{ ...buttonStyle }}><MdOutlineNavigateNext size={28} className={strong} /></button>
   }
   return (
-    <div>
+    <div data-aos="fade-down">
     <Slide {...properties} slidesToScroll={1} slidesToShow={1} indicators={true} autoplay={false} responsive={[{
   breakpoint: 800,
   settings: {
@@ -42,7 +42,7 @@ export default function HighlightProject({
     slidesToScroll: 2
   }
 }]}>
-    <div className={lightModeFeature}>
+    <div data-aos="fade-up" className={lightModeFeature}>
       <img src={laptop} alt='Projeto em destaque numero 1' />
         <div className={lightModeHiddenContent}>
           <h5>Espaço reservado</h5>
@@ -51,7 +51,7 @@ export default function HighlightProject({
         </div>
     </div>
       
-      <div className={lightModeFeature}>
+      <div data-aos="fade-rght" className={lightModeFeature}>
         <img src={imagelap} alt='Projeto em destaque 2' />
         <div className={lightModeHiddenContent}>
           <h5>Espaço reservado</h5>
@@ -60,7 +60,7 @@ export default function HighlightProject({
         </div>
       </div>
 
-      <div className={lightModeFeature}>
+      <div data-aos="fade-down" className={lightModeFeature}>
         <img src={paisage} alt='Projeto em destaque 3' />
         <div className={lightModeHiddenContent}>
           <h5>Espaço reservado</h5>
@@ -69,7 +69,7 @@ export default function HighlightProject({
           </div>
       </div>
 
-      <div className={lightModeFeature}>
+      <div data-aos="fade-up" className={lightModeFeature}>
         <img src={project} alt='projeto em destaque 4' />
           <div className={lightModeHiddenContent}>
             <h5>Espaço reservado</h5>
@@ -78,7 +78,7 @@ export default function HighlightProject({
             </div>
         </div>
 
-      <div className={lightModeFeature}>
+      <div data-aos="fade-up-left" className={lightModeFeature}>
         <img src={laptop} alt='Projeto em deataque 5' />
           <div className={lightModeHiddenContent}>
             <h5>Espaço reservado</h5>

@@ -67,6 +67,10 @@
     transition: transform 1s ease;
   }
 
+  .text-content h2, .text-color-light h2 {
+    text-align: center;
+  }
+
   nav ul li a:hover::after {
     transform: scaleX(1);
   }
@@ -121,6 +125,7 @@
   .container-presentation-light h2 {
     font-size: 28px;
     margin-bottom: 10px;
+    text-align: center;
   }
 
   .container-presentation-light {
@@ -157,7 +162,7 @@
     cursor: pointer;
     position: relative;
     margin: 0 5px;
-  min-height: 250px;
+    height: 250px;
   }
 
   .featured-project-light {
@@ -180,7 +185,7 @@
 
   .featured-project img, 
   .featured-project-light img {
-    max-height: 250px;
+    height: 250px;
     width: 100%;
     max-width: 380px;
     border-radius: 1px;
@@ -332,7 +337,7 @@
   .project img, .project-light img {
     width: 100%;
     opacity: 0.5;
-    max-height: 230px;
+    height: 230px;
     object-fit: cover;
     margin: 0;
     display: block;
@@ -348,7 +353,7 @@
     transform: translateY(0);
   }
 
-  .parallax {
+  .parallax, .parallax-light {
     background: linear-gradient(rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.692)),
       url("./assets/computador.jpg");
     background-attachment: scroll;
@@ -362,16 +367,13 @@
   }
 
   .parallax-light {
-    background: linear-gradient(rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.692)),
-      url("./assets/light.jpg");
-    background-attachment: scroll;
+    background:  linear-gradient(#ffffffd3, #ffffffd3),
+    url("./assets/light.jpg");
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    height: 400px;
-    width: 100%;
-    box-sizing: border-box;
-    color: var(--text-color);
-    overflow: hidden;
+    height: 500px;
+    color: var(--t-color);
   }
 
   .strong {
@@ -599,6 +601,7 @@
     font-size: 1.5rem;
     margin-bottom: 40px;
     color: var(--color-special);
+    margin-left: 20px;
   }
 
   .about h2 {
@@ -880,7 +883,7 @@
   }
 
   .parallax-light {
-    background:
+    background:  linear-gradient(#ffffffd3, #ffffffd3),
     url("./assets/light.jpg");
     background-attachment: fixed;
     background-size: cover;

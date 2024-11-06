@@ -29,7 +29,7 @@ export default function MyProjects(
       nextArrow: <button style={{ ...buttonStyle }}><MdOutlineNavigateNext size={28} className={strong} /></button>
     }
   return (
-   <div>
+   <div data-aos="fade-up">
     <Slide {...properties} slidesToScroll={1} slidesToShow={1} indicators={true} autoplay={true} responsive={[{
   breakpoint: 800,
   settings: {
